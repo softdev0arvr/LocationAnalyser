@@ -1,0 +1,2 @@
+2023-04-29 00:24:56.8735 INFO ActionMethod Called: GetLocationsFromCsv
+2023-04-29 00:24:57.2067 INFO Locations from the csv was passed successfully
