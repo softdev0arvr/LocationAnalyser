@@ -3,23 +3,24 @@ using System.Linq.Expressions;
 using System;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Location.UnitOfWork;
+using Location.Domain;
 
 namespace Location.Repository.Generic
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
-        public DatabaseContextCla _dbContext = null;
+        public LocationDbContext _dbContext = null;
         private DbSet<T> table = null;
      
-        private readonly IUnitOfWork<DatabaseContextCla> _unitOfWork;
+        private readonly IUnitOfWork<LocationDbContext> _unitOfWork;
 
         //public GenericRepository(IUnitOfWork<DatabaseContextCla> unitOfWork)
         //{
         //    _unitOfWork = unitOfWork;
         //}
-        public GenericRepository(DatabaseContextCla dbContext)
+        public GenericRepository(LocationDbContext dbContext)
         {
-            _unitOfWork = new UnitOfWork<DatabaseContextCla>(dbContext);
+            _unitOfWork = new UnitOfWork<LocationDbContext>(dbContext);
             _dbContext = dbContext;
             table = _dbContext.Set<T>();
         }

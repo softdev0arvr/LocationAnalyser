@@ -1,4 +1,5 @@
-﻿using Location.IRepository;
+﻿using Location.Domain;
+using Location.IRepository;
 using Location.Models;
 using Location.Repository;
 using Location.Repository.Generic;
@@ -12,11 +13,11 @@ namespace Location.Extensions
         public static IServiceCollection AddApplicationServices(this IServiceCollection services, IConfiguration config) 
         {
             services.AddTransient<ILocationRepository, LocationRepository>();
-           services.AddScoped<IUnitOfWork<DatabaseContextCla>, UnitOfWork<DatabaseContextCla>>();
+           services.AddScoped<IUnitOfWork<LocationDbContext>, UnitOfWork<LocationDbContext>>();
 
             services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
-            services.AddDbContext<DatabaseContextCla>(options =>
+            services.AddDbContext<LocationDbContext>(options =>
             {
                 options.UseSqlServer(config.GetConnectionString("backendAPIContext"));
             });

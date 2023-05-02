@@ -1,5 +1,7 @@
+using AutoMapper;
 using Location;
 using Location.Extensions;
+using Location.Models.Mapping;
 using LoggerService;
 using Microsoft.EntityFrameworkCore;
 using NLog;
@@ -11,6 +13,12 @@ LogManager.LoadConfiguration(string.Concat(Directory.GetCurrentDirectory(), "/nl
 
 
 // Add services to the container.
+
+//configure automapper
+var mapperConfig = new MapperConfiguration(mc => mc.AddProfile(new MappingProfile()));
+
+var mapper = mapperConfig.CreateMapper();
+builder.Services.AddSingleton(mapper);
 
 builder.Services.AddApplicationServices(builder.Configuration);
 builder.Services.AddControllers();
