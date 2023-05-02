@@ -16,6 +16,9 @@ using MIS.Domain.Enums;
 
 namespace Location.Controllers
 {
+    /// <summary>
+    /// The Location Controller.
+    /// </summary>
     [Route("api/v1")]
     [ApiController]
     public class LocationController : ControllerBase
@@ -33,11 +36,15 @@ namespace Location.Controllers
             _locationRepository = new GenericRepository<LocationEntity>(dbContext);
         }
 
+        /// <summary>
+        /// Add location in db
+        /// </summary>
+        /// <param name="dto">The Location dto.</param>
+        /// <returns>An ActionResult.</returns>
         [HttpPost]
         [Route("/addLocation")]
         public async Task<ActionResult<List<LocationEntity>>> AddLocation([FromBody] LocationDTO dto)
         {
-            _logger.LogInfo("ActionMethod Called: Dbaddlocation");
             try
             {
                 // Checking if the passed DTO is valid
@@ -46,49 +53,64 @@ namespace Location.Controllers
 
                 dto.Hour = dto.Hour == null ? DateTime.Now.TimeOfDay : dto.Hour;
 
-                var locationEntity = _mapper.Map<LocationEntity>(dto);
-
                 // Begin the Transaction
                 _unitOfWork.CreateTransaction();
+
+                var locationEntity = _mapper.Map<LocationEntity>(dto);
                 await _locationRepository.InsertAsync(locationEntity);
+
+                //save the transaction
                 _unitOfWork.Save();
+
+                //commit the transaction
                 _unitOfWork.Commit();
 
-                // await _locationRepository.InsertAsync(locationHourRange);
+                // Log info message
                 _logger.LogInfo("New location successfully added");
 
-                return Ok(new ApiResponseModel(dto, "Success"));
+                return Ok(new ApiResponseModel(dto, "Location added successfully"));
             }
             catch (Exception ex)
             {
+                //rollback the transaction
                 _unitOfWork.Rollback();
-                _logger.LogError("Error creating location");
+
+                // Log error message
+                _logger.LogError("Error adding location");
+
                 return BadRequest(new ApiResponseModel(ApiStatus.Error, ApiErrors.DefaultError.GetDescription(), ex));
             }
-
         }
 
-        [HttpPost("/getLocationsFromCsv")]
-        public ActionResult<List<string[]>> GetLocationsFromCsv(IFormFile file)
+        /// <summary>
+        /// Gets all locations from csv file.
+        /// </summary>
+        /// <param name="file">The IFormFile.</param>
+        /// <returns>The list of LocationDTO.</returns>
+        [HttpGet("/getLocationsFromCsv")]
+        public ActionResult<List<LocationDTO[]>> GetLocationsFromCsv(IFormFile file)
         {
-
-            _logger.LogInfo("ActionMethod Called: GetLocationsFromCsv");
             try
             {
+                // Create a new StreamReader to read the contents of the CSV file
                 using var reader = new StreamReader(file.OpenReadStream());
+
+                // Create a new CsvReader to parse the contents of the CSV file
                 using var csv = new CsvReader(reader, new CsvConfiguration(CultureInfo.InvariantCulture)
                 {
                     Delimiter = ",",
                     HasHeaderRecord = true,
                     IgnoreBlankLines = true,
                 });
+
                 List<LocationDTO> locations = new List<LocationDTO>();
                 TimeSpan startTime = TimeSpan.Parse(LocationConstant.StartingTime);
                 TimeSpan endTime = TimeSpan.Parse(LocationConstant.EndingTime);
 
+                //reading lines from csv file
                 while (csv.Read())
                 {
-                    string location = csv.GetField<string>(0);
+                    string? location = csv.GetField<string>(0);
                     dynamic hours = IsValidTimeFormat(csv.GetField<string>(1));
 
                     if (hours == null)
@@ -100,27 +122,35 @@ namespace Location.Controllers
                         Hour = hours
                     };
 
+                    // If the hours value is between the start and end times, add the
+                    // LocationDTO object to the locations list
                     if (hours <= endTime && hours >= startTime)
                     {
                         locations.Add(loc);
                     }
                 }
-                _logger.LogInfo("Locations from the csv was passed successfully");
+
+                // Log info message
+                _logger.LogInfo("Getting all locations from csv based on condition");
 
                 return Ok(new ApiResponseModel(locations, "CSV file parsed successfully"));
 
             }
             catch (Exception ex)
             {
-                _logger.LogError("Error was occured while parsing CSV");
+                // Log error message
+                _logger.LogError("Error occured while parsing CSV");
                 return BadRequest(new ApiResponseModel(ApiStatus.Error, ApiErrors.DefaultError.GetDescription(), ex));
             }
         }
 
-        [HttpPost("/getLocationsFromDB")]
+        /// <summary>
+        /// Gets all locations from db.
+        /// </summary>
+        /// <returns>The list of LocationDTO.</returns>
+        [HttpGet("/getLocationsFromDB")]
         public ActionResult<List<string[]>> GetLocationsFromDB()
         {
-            _logger.LogInfo("ActionMethod Called: GetLocationsFromDB");
             try
             {
                 //get all locations from db
@@ -134,19 +164,22 @@ namespace Location.Controllers
                 //fill out the location dto by filtering start and end time
                 foreach (var location in allLocations)
                 {
-                    TimeSpan currentTime = TimeSpan.Parse(location.Hour.ToString("HH:mm"));
+                    TimeSpan currentTime = TimeSpan.Parse(location.Hour.ToString());
 
+                    // If the hours value is between the start and end times, add the
+                    // LocationDTO object to the locations list
                     if (currentTime <= endTime && currentTime >= startTime)
                         filteredLocations.Add(_mapper.Map<LocationDTO>(location));
                 }
 
-                _logger.LogInfo("Getting all locations from db");
+                // Log info message
+                _logger.LogInfo("Getting all locations from db based on condition");
 
                 return Ok(new ApiResponseModel(filteredLocations, "Locations received successfully"));
             }
             catch (Exception ex)
             {
-
+                // Log error message
                 _logger.LogError("Internal error was occured while fetching locations on a condition from Database");
                 return BadRequest(new ApiResponseModel(ApiStatus.Error, ApiErrors.DefaultError.GetDescription(), ex));
             }

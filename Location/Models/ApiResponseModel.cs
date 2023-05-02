@@ -4,6 +4,9 @@ using System.Net.NetworkInformation;
 
 namespace Location.Models
 {
+    /// <summary>
+    /// The ApiResponseModel class.
+    /// </summary>
     public class ApiResponseModel
     {
         public ApiResponseModel(object result=null, string message=null)

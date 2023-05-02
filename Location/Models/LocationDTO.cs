@@ -7,7 +7,7 @@ namespace Location.Models
     /// </summary>
     public class LocationDTO
     {
-        public string Location { get; set; }
+        public string? Location { get; set; }
         public TimeSpan? Hour { get; set; }
 
         public Dictionary<string, string> serialize()

@@ -4,6 +4,9 @@ using System.ComponentModel;
 using System.Text;
 namespace MIS.Domain.Enums
 {
+    /// <summary>
+    /// The ApiStatus and ApiErrors class.
+    /// </summary>
     public enum ApiStatus
     {
         Success = 0,
