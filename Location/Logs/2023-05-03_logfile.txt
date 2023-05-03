@@ -1,0 +1,5 @@
+2023-05-03 20:58:06.7052 INFO Getting all locations from db based on condition
+2023-05-03 20:58:34.5344 INFO Getting all locations from csv based on condition
+2023-05-03 20:59:03.3201 ERROR Error occured while parsing CSV
+2023-05-03 20:59:47.8378 INFO New location successfully added
+2023-05-03 21:00:47.3929 INFO New location successfully added
