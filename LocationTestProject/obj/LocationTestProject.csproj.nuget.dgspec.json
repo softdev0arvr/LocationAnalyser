@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\PROJECTS\\LocationAnalyser\\LoggerService\\LoggerService.csproj": {}
+    "D:\\PROJECTS\\LocationAnalyser\\LocationTestProject\\LocationTestProject.csproj": {}
   },
   "projects": {
-    "D:\\PROJECTS\\LocationAnalyser\\LoggerService\\LoggerService.csproj": {
+    "D:\\PROJECTS\\LocationAnalyser\\LocationTestProject\\LocationTestProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\PROJECTS\\LocationAnalyser\\LoggerService\\LoggerService.csproj",
-        "projectName": "LoggerService",
-        "projectPath": "D:\\PROJECTS\\LocationAnalyser\\LoggerService\\LoggerService.csproj",
+        "projectUniqueName": "D:\\PROJECTS\\LocationAnalyser\\LocationTestProject\\LocationTestProject.csproj",
+        "projectName": "LocationTestProject",
+        "projectPath": "D:\\PROJECTS\\LocationAnalyser\\LocationTestProject\\LocationTestProject.csproj",
         "packagesPath": "C:\\Users\\Dev\\.nuget\\packages\\",
-        "outputPath": "D:\\PROJECTS\\LocationAnalyser\\LoggerService\\obj\\",
+        "outputPath": "D:\\PROJECTS\\LocationAnalyser\\LocationTestProject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Dev\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,9 +40,33 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
-            "NLog.Extensions.Logging": {
+            "MSTest.TestFramework": {
               "target": "Package",
-              "version": "[5.2.3, )"
+              "version": "[3.0.2, )"
+            },
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[17.5.0, )"
+            },
+            "NUnit": {
+              "target": "Package",
+              "version": "[3.13.3, )"
+            },
+            "NUnit.Analyzers": {
+              "target": "Package",
+              "version": "[3.6.1, )"
+            },
+            "NUnit3TestAdapter": {
+              "target": "Package",
+              "version": "[4.4.2, )"
+            },
+            "coverlet.collector": {
+              "target": "Package",
+              "version": "[3.2.0, )"
+            },
+            "xunit.extensibility.core": {
+              "target": "Package",
+              "version": "[2.4.2, )"
             }
           },
           "imports": [

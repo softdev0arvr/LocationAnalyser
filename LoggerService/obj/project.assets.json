@@ -493,11 +493,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Dev\\Desktop\\ReactDOTNetProj\\Location\\Location\\LoggerService\\LoggerService.csproj",
+      "projectUniqueName": "D:\\PROJECTS\\LocationAnalyser\\LoggerService\\LoggerService.csproj",
       "projectName": "LoggerService",
-      "projectPath": "C:\\Users\\Dev\\Desktop\\ReactDOTNetProj\\Location\\Location\\LoggerService\\LoggerService.csproj",
+      "projectPath": "D:\\PROJECTS\\LocationAnalyser\\LoggerService\\LoggerService.csproj",
       "packagesPath": "C:\\Users\\Dev\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Dev\\Desktop\\ReactDOTNetProj\\Location\\Location\\LoggerService\\obj\\",
+      "outputPath": "D:\\PROJECTS\\LocationAnalyser\\LoggerService\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Dev\\AppData\\Roaming\\NuGet\\NuGet.Config",

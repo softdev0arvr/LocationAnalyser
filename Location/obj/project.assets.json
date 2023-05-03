@@ -2,6 +2,22 @@
   "version": 3,
   "targets": {
     "net6.0": {
+      "AutoMapper/12.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.CSharp": "4.7.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/AutoMapper.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.1/AutoMapper.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "CsvHelper/30.0.1": {
         "type": "package",
         "compile": {
@@ -882,7 +898,7 @@
           }
         }
       },
-      "Microsoft.CSharp/4.5.0": {
+      "Microsoft.CSharp/4.7.0": {
         "type": "package",
         "compile": {
           "ref/netcoreapp2.0/_._": {}
@@ -3677,6 +3693,21 @@
     }
   },
   "libraries": {
+    "AutoMapper/12.0.1": {
+      "sha512": "hvV62vl6Hp/WfQ24yzo3Co9+OPl8wH8hApwVtgWpiAynVJkUcs7xvehnSftawL8Pe8FrPffBRM3hwzLQqWDNjA==",
+      "type": "package",
+      "path": "automapper/12.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "automapper.12.0.1.nupkg.sha512",
+        "automapper.nuspec",
+        "icon.png",
+        "lib/netstandard2.1/AutoMapper.dll",
+        "lib/netstandard2.1/AutoMapper.xml"
+      ]
+    },
     "CsvHelper/30.0.1": {
       "sha512": "rcZtgbWR+As4G3Vpgx0AMNmShGuQLFjkHAPIIflzrfkJCx8/AOd4m96ZRmiU1Wi39qS5UVjV0P8qdgqOo5Cwyg==",
       "type": "package",
@@ -4531,10 +4562,10 @@
         "microsoft.codeanalysis.workspaces.msbuild.nuspec"
       ]
     },
-    "Microsoft.CSharp/4.5.0": {
-      "sha512": "kaj6Wb4qoMuH3HySFJhxwQfe8R/sJsNJnANrvv8WdFPMoNbKY5htfNscv+LHCu5ipz+49m2e+WQXpLXr9XYemQ==",
+    "Microsoft.CSharp/4.7.0": {
+      "sha512": "pTj+D3uJWyN3My70i2Hqo+OXixq3Os2D1nJ2x92FFo6sk8fYS1m1WLNTs0Dc1uPaViH0YvEEwvzddQ7y4rhXmA==",
       "type": "package",
-      "path": "microsoft.csharp/4.5.0",
+      "path": "microsoft.csharp/4.7.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -4547,6 +4578,7 @@
         "lib/netcoreapp2.0/_._",
         "lib/netstandard1.3/Microsoft.CSharp.dll",
         "lib/netstandard2.0/Microsoft.CSharp.dll",
+        "lib/netstandard2.0/Microsoft.CSharp.xml",
         "lib/portable-net45+win8+wp8+wpa81/_._",
         "lib/uap10.0.16299/_._",
         "lib/win8/_._",
@@ -4556,7 +4588,7 @@
         "lib/xamarinmac20/_._",
         "lib/xamarintvos10/_._",
         "lib/xamarinwatchos10/_._",
-        "microsoft.csharp.4.5.0.nupkg.sha512",
+        "microsoft.csharp.4.7.0.nupkg.sha512",
         "microsoft.csharp.nuspec",
         "ref/MonoAndroid10/_._",
         "ref/MonoTouch10/_._",
@@ -10357,6 +10389,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "AutoMapper >= 12.0.1",
       "CsvHelper >= 30.0.1",
       "LoggerService >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 6.0.15",
@@ -10374,11 +10407,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Dev\\Desktop\\ReactDOTNetProj\\Location\\Location\\Location\\Location.csproj",
+      "projectUniqueName": "D:\\PROJECTS\\LocationAnalyser\\Location\\Location.csproj",
       "projectName": "Location",
-      "projectPath": "C:\\Users\\Dev\\Desktop\\ReactDOTNetProj\\Location\\Location\\Location\\Location.csproj",
+      "projectPath": "D:\\PROJECTS\\LocationAnalyser\\Location\\Location.csproj",
       "packagesPath": "C:\\Users\\Dev\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Dev\\Desktop\\ReactDOTNetProj\\Location\\Location\\Location\\obj\\",
+      "outputPath": "D:\\PROJECTS\\LocationAnalyser\\Location\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Dev\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -10395,8 +10428,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\Dev\\Desktop\\ReactDOTNetProj\\Location\\Location\\LoggerService\\LoggerService.csproj": {
-              "projectPath": "C:\\Users\\Dev\\Desktop\\ReactDOTNetProj\\Location\\Location\\LoggerService\\LoggerService.csproj"
+            "D:\\PROJECTS\\LocationAnalyser\\LoggerService\\LoggerService.csproj": {
+              "projectPath": "D:\\PROJECTS\\LocationAnalyser\\LoggerService\\LoggerService.csproj"
             }
           }
         }
@@ -10411,6 +10444,10 @@
       "net6.0": {
         "targetAlias": "net6.0",
         "dependencies": {
+          "AutoMapper": {
+            "target": "Package",
+            "version": "[12.0.1, )"
+          },
           "CsvHelper": {
             "target": "Package",
             "version": "[30.0.1, )"

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "snW5zZwvPHg40zbk0e6DqUy8yEKfUgXPXaebzek3YUkpXx76N4nkeaH/IM2iabQU+/vl/cjaEz/ZVjPaiVKgUg==",
+  "dgSpecHash": "wttfZJzwLqJBVGXEAmAXZrPn5mdxQNerIbetZcH0HkifHZp+OWQ8tRDMV86ut8tkpbRru2Rn/s4WeZwQDKjKeA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Dev\\Desktop\\ReactDOTNetProj\\Location\\Location\\LoggerService\\LoggerService.csproj",
+  "projectFilePath": "D:\\PROJECTS\\LocationAnalyser\\LoggerService\\LoggerService.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Dev\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\6.0.0\\microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\Dev\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\6.0.0\\microsoft.extensions.dependencyinjection.6.0.0.nupkg.sha512",
