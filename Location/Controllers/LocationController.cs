@@ -87,7 +87,7 @@ namespace Location.Controllers
         /// </summary>
         /// <param name="file">The IFormFile.</param>
         /// <returns>The list of LocationDTO.</returns>
-        [HttpGet("/getLocationsFromCsv")]
+        [HttpPost("/getLocationsFromCsv")]
         public ActionResult<List<LocationDTO[]>> GetLocationsFromCsv(IFormFile file)
         {
             try
