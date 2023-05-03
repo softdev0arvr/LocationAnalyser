@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Location", "Location\Locati
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoggerService", "LoggerService\LoggerService.csproj", "{70355256-D972-45BA-8C9B-E565BFBCD12F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocationTestProject", "LocationTestProject\LocationTestProject.csproj", "{1E29CF18-C4AB-4165-96C1-5CFCC3035AC4}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{70355256-D972-45BA-8C9B-E565BFBCD12F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{70355256-D972-45BA-8C9B-E565BFBCD12F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{70355256-D972-45BA-8C9B-E565BFBCD12F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1E29CF18-C4AB-4165-96C1-5CFCC3035AC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1E29CF18-C4AB-4165-96C1-5CFCC3035AC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1E29CF18-C4AB-4165-96C1-5CFCC3035AC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1E29CF18-C4AB-4165-96C1-5CFCC3035AC4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
